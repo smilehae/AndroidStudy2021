@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lab3_4Activity"
+    android:orientation="vertical">
+
+    <!--auto Link : 문자열 내에 autolink에 해당하는 URL 문자열이 들어있으면 자동 링크 형태로 출력된다. /-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web|email|phone"
+        android:text="가나다라 http://www.google.com 마바사 a@a.com 아자차카타 02-1234-5678"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="와 뽀로로다~!! 노는게 제일 좋아 친구들 모여라. 언제나 즐거워 개구쟁이 뽀로로. 눈 덮인 숲속마을 꼬마펭귄 나가신다. 언제나 즐거워 오늘은 또 무슨일이 생길까 보로롤를 불러봐요 뽀롱뽀롱 뽀로로 뽀롱뽀롱 뽀로로"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello world"/>
+
+    <!--이미지가 View보다 커서 짤릴땐 maxWidth를 사용하면 된다. 단, 이때 adjustViewBound(비율 고정) 관련 속성과 같이 사용해야 한다-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="500px"
+        android:adjustViewBounds="true"
+        android:src="@drawable/sample"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="전화번호 입력"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="is unChecked"/>
+
+
+</LinearLayout>
