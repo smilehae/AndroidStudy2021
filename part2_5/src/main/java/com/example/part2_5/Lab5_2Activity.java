@@ -3,11 +3,18 @@ package com.example.part2_5;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class Lab5_2Activity extends AppCompatActivity implements View.OnClickListener{
 
@@ -45,6 +52,7 @@ public class Lab5_2Activity extends AppCompatActivity implements View.OnClickLis
         toast.show();
     }
 
+    //다이얼로그 내에서 특정 값이 눌렸을때 나타나는 이벤트에 대한 리스너
     DialogInterface.OnClickListener dialogListner = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialogInterface, int i) {
@@ -59,6 +67,8 @@ public class Lab5_2Activity extends AppCompatActivity implements View.OnClickLis
         }
     };
 
+    //dialog는 복잡하기 때문에 builder 클래스를 사용해서 생성한다.
+    //버튼을 누르면 builder로 인해서 제작하는 구조
     @Override
     public void onClick(View view) {
         if(view == alertBtn){
@@ -79,6 +89,42 @@ public class Lab5_2Activity extends AppCompatActivity implements View.OnClickLis
             builder.setNegativeButton("취소",null);
             listDialog = builder.create();
             listDialog.show();
+        } else if (view == dateBtn){
+            //현재 날짜 띄우기 위한 정보
+            Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        showToast(i+":"+i1+":"+i2);
+                }
+            },year,month,day);
+            datePickerDialog.show(); // 빌더가 코드 내부에 들어있는듯!
+
+        } else if (view == timeBtn){
+            Calendar c = Calendar.getInstance();
+            int hour= c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                    showToast(i+":"+i1);
+                }
+            },hour,minute,false);
+            timePickerDialog.show();
+        } else if(view == customDialogBtn){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+            View v = inflater.inflate(R.layout.dialog_layout,null);
+            builder.setView(v);
+            builder.setPositiveButton("확인",dialogListner);
+            builder.setNegativeButton("취소",null);
+            customDialog = builder.create();
+            customDialog.show();
         }
     }
 }
