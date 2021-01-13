@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <scale
+    android:fromXScale="0.0"
+    android:toXScale="1.0"
+    android:fromYScale="0.0"
+    android:toYScale="1.0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    />
+    <!--pivotX, PivotY : 확대 축소 중앙점. 50% 라고 써있으면, 중간 지점에서 골고루 크기가 변한다는 뜻!-->
+
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:startOffset="0"
+        android:duration="2000"/>
+
+    <!--startOffset : 얼마 뒤에 효과가 시작되는가! 단위 ms duration : 얼마동안 애니메이션 효과가 지속되는가-->
+    <!--지금 같은 경우에는, 안보였다가 2초뒤에 완전히 보이며, 처음부터 애니메이션이 시작된다는 뜻-->
+
+
+
+</set>
