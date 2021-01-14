@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReadDbActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".RealmReadActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ReadDbActivity" />
+        <activity android:name=".Lab3_8Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
