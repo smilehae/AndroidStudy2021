@@ -11,5 +11,5 @@ https://www.notion.so/9fd35c2dba26442f94880d7872ae9d41
 ### 현재 진도
 - Part1 0 <br>
 - Part2 0 <br>
-_ Part3 0 <br>
-_ Part4 - <br>
+- Part3 0 <br>
+- Part4 - <br>
