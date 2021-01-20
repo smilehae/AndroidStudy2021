@@ -12,4 +12,4 @@ https://www.notion.so/9fd35c2dba26442f94880d7872ae9d41
 - Part1 0 <br>
 - Part2 0 <br>
 - Part3 0 <br>
-- Part4 10-1 (완료) <br>
+- Part4 10-1 (완료) 10-2(학습 중) <br>
