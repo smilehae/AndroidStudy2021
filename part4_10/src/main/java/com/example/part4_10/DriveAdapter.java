@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -68,8 +69,10 @@ public class DriveAdapter extends ArrayAdapter<DriveVO> {
         menuImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Toast toast = Toast.makeText(context,vo.title+"menu click",Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
+        return convertView;
     }
 }
