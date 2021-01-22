@@ -34,6 +34,9 @@ public class DriveAdapter extends ArrayAdapter<DriveVO> {
 
     @NonNull
     @Override
+    //1개의 작은 요소를 만들어주는것 ( 10개의 작은 뷰가 생기면, 10번 호출) - 성능 주의!
+    //처음 만들어질때만 findViewById를 하고, inflater 초기화를 한다.
+    //왜냐하면, 한번 만들어지면 convertView를 리턴하기 때문에 이걸로 판단하면 된다.
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //해당 뷰가 처음 만들어지는 것! : 초기화 & 새로 findViewById하기
         if(convertView == null){
@@ -42,6 +45,7 @@ public class DriveAdapter extends ArrayAdapter<DriveVO> {
             convertView = inflater.inflate(resId,null);
             //holder이라는 변수에 findViewById 해서 값 집어넣어서 convertView에 저장
             DriveHolder holder = new DriveHolder(convertView);
+            //convertView에 holder이라는 non-visible data를 보관한다. ( findViewById가 들어잇음)
             convertView.setTag(holder);
         }
         DriveHolder holder = (DriveHolder)convertView.getTag();
@@ -69,7 +73,7 @@ public class DriveAdapter extends ArrayAdapter<DriveVO> {
         menuImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(context,vo.title+"menu click",Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context,vo.title+" menu click",Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
